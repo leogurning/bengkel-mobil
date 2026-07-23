@@ -7,6 +7,7 @@ import {
   Body,
   Param,
   ParseIntPipe,
+  Patch,
 } from '@nestjs/common';
 import { TransaksiService } from './transaksi.service.js';
 import { CreateTransaksiDto } from './dto/create-transaksi.dto.js';
@@ -31,7 +32,7 @@ export class TransaksiController {
     return this.transaksiService.create(createTransaksiDto);
   }
 
-  @Put(':id')
+  @Patch(':id')
   update(
     @Param('id', ParseIntPipe) id: number,
     @Body() updateTransaksiDto: UpdateTransaksiDto,
